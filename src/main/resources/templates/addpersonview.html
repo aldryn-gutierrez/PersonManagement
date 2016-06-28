@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmnls:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+<title>Person Management App</title>
+</head>
+<body>
+	<div  th:if="${error != null}">
+		Errors: <p th:text="${error}"></p><br/>
+	</div>
+	
+	<div th:if="${message != null}">
+		<p th:text="${message}"></p><br/>
+	</div>
+	
+	<form th:object="${person}" th:action="@{/add}" method="post">
+		First Name: <input type="text" th:field="*{firstname}" />
+		Last Name: <input type="text" th:field="*{lastname}"/>
+		<input type="submit" />
+	</form>
+</body>
+</html>
